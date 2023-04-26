@@ -1,0 +1,65 @@
+html, body{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*
+#teste{
+    width: 50%;
+    height: 300px;
+    position:relative;
+    top: 150px;
+    left: 180px;
+    border: 2px dotted red;
+}
+*/
+
+#princ{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    margin: 0 10%;
+    border: 2px dotted brown;
+}
+
+#div1{
+    background-color: #598554;
+}
+
+#div2{
+    background-color: #f7f4f0;
+}
+
+#div3{
+    background-color: #edd7d3;
+}
+
+#div4{
+    background-color: #598554;
+}
+
+#rodape{
+    height: 10%;
+    background-color: #292620;
+}
+.interna{
+    width: 25%;
+    height: 80%;
+    padding: 0.5em;
+    border: 2px solid #024f09;
+    border-radius: 5px;
+    float: left;
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+}
+
+#header{
+    height: 10%;
+    min-height: 50px;
+    background: #edd7d3;
+    background: linear-gradient(#edd7d3, #f7f4f0);
+    font-size: 2em;
+    color: #292620;
+    text-align: center;
+}
