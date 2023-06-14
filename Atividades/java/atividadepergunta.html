@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário</title>
+<head>
+  <style>
+    .error {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Questionário</h1>
+  <form id="questionnaireForm">
+    <label for="q1">Questão 1:</label>
+    <input type="text" id="q1" required><br>
+
+    <label for="q2">Questão 2:</label>
+    <input type="text" id="q2" required><br>
+
+    <label for="q3">Questão 3:</label>
+    <input type="text" id="q3" required><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Impede o envio do formulário
+
+      // Remove qualquer destaque de erro anterior
+      var inputs = document.getElementsByTagName('input');
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].classList.remove('error');
+      }
+
+      // Verifica as respostas
+      var q1 = document.getElementById('q1').value;
+      var q2 = document.getElementById('q2').value;
+      var q3 = document.getElementById('q3').value;
+
+      var isCorrect = true;
+
+      // Verifica se as respostas estão corretas
+      if (q1 !== 'Resposta correta 1') {
+        document.getElementById('q1').classList.add('error');
+        isCorrect = false;
+      }
+
+      if (q2 !== 'Resposta correta 2') {
+        document.getElementById('q2').classList.add('error');
+        isCorrect = false;
+      }
+
+      if (q3 !== 'Resposta correta 3') {
+        document.getElementById('q3').classList.add('error');
+        isCorrect = false;
+      }
+
+      // Envia o formulário se todas as respostas estiverem corretas
+      if (isCorrect) {
+        document.getElementById('questionnaireForm').submit();
+      }
+    });
+  </script>
+</body>
+</html>
