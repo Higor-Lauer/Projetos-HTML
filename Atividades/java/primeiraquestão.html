@@ -1,22 +1,30 @@
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <title>Atividade</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primeira questão</title>
 </head>
 <body>
-    <fieldset>
-        <label for="numero">Digite um número:</label>
-        <input type="number" name="numero" id="numero" required>
-        <input type="submit" value="Verificar">
-    </fieldset>
-    <script>
-        int numero = Integer.parseInt(request.getParameter("numero"));
+    <input type="number" id="val" placeholder="Digite o número base"><br>
+    <input type="button" id="botao" value="Verificar">
+    <p id="result">Resultado:</p>
 
-        if (numero > 20) {
-            double metade = numero / 2.0;
+    <script>
+        document.getElementById("val").onchange = retorno;
+
+        function retorno() {
+            document.getElementById("result").innerHTML = "Resultado:";
+        }
+
+        document.getElementById("botao").onclick = function() {
+            retorno();
+            let valor = parseInt(document.getElementById("val").value);
+            let resultado = 0;
+            while (valor % 2 != 0) {
+                valor *= valor;;
+                document.getElementById("result").innerHTML = "Resultado: " + valor;
+            }
+        };
     </script>
 </body>
 </html>
