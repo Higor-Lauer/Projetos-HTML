@@ -6,40 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Média</title>
 </head>
-    <body>
-        <label for="p1">Prova 1:</label>
-        <input type="text" id="p1"><br><br>
-        <label for="p2">Prova 2:</label>
-        <input type="text" id="p2"><br><br>
-        <label for="ma">Média Aritmética</label>
-        <input type="radio" name="media" id="ma" checked>
-        <label for="mp">Média Ponderada</label>
-        <input type="radio" name="media" id="mp"><br><br>
-        <button onclick="calcularMedia()">Calcular</button><br><br>
-        <p id="resultado"></p>
-    </body>
-    <script>
-        function calcularMedia() {
-            var p1 = parseFloat(document.getElementById("p1").value);
-            var p2 = parseFloat(document.getElementById("p2").value);
-            var media = 0;
-            var mensagem = "";
 
-            if (document.getElementById("ma").checked) {
-                media = (p1 + p2) / 2;
-            } else if (document.getElementById("mp").checked) {
-                media = (p1 * 2 + p2 * 4) / 6;
-            }
+<body>
+    <label for="p1">Prova 1:</label>
+    <input type="text" id="p1"><br><br>
+    <label for="p2">Prova 2:</label>
+    <input type="text" id="p2"><br><br>
+    <label for="ma">Média Aritmética</label>
+    <input type="radio" name="media" id="ma" checked>
+    <label for="mp">Média Ponderada</label>
+    <input type="radio" name="media" id="mp"><br><br>
+    <button onclick="calcMedia()">Calcular</button>
+    <button onclick="limparCampos()">Limpar</button><br><br>
+    <p id="resultado"></p>
+</body>
 
-            if (media >= 60) {
-                mensagem = "Aprovado";
-            } else if (media < 30) {
-                mensagem = "Reprovado";
-            } else {
-                mensagem = "Em recuperação";
-            }
+<script>
+    function calcMedia() {
+        var prova1 = parseFloat(document.getElementById("p1").value);
+        var prova2 = parseFloat(document.getElementById("p2").value);
+        var media = 0;
+        var mensagem = "";
 
-            document.getElementById("resultado").innerHTML = "Média: " + media.toFixed(2) + "<br>" + mensagem;
+        if (document.getElementById("ma").checked) {
+            media = (prova1 + prova2)/2;
+        } else if (document.getElementById("mp").checked) {
+            media = (prova1*2 + prova2*4)/6;
         }
-    </script>
-    </html>
+
+        if (media >= 60) {
+            mensagem = "Aprovado";
+        } else if (media < 30) {
+            mensagem = "Reprovado";
+        } else {
+            mensagem = "Em recuperação";
+        }
+
+        document.getElementById("resultado").innerHTML = "Média: " + media + "<br>" + mensagem;
+    }
+
+    function limparCampos() {
+        document.getElementById("p1").value = "";
+        document.getElementById("p2").value = "";
+        document.getElementById("resultado").innerHTML = "";
+    }
+</script>
+
+</html>
