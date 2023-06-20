@@ -6,8 +6,9 @@ HTML, body {
     background: #DED0E2;
 }
  
-.header{
-    
+header{
+    padding-left: 50px;
+    padding-top: 50px;
 }
 
 .ativ{
